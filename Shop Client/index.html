@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Shop Client</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="css/search.css" type="text/css">
+        <script type="text/javascript" src="js/skripta.js"></script>
+    </head>
+
+    <body onload="loadPage()" >
+        <div class="container">
+            <div class="row mt-5">
+                <button type="button" id="btnLogin" onclick="showLogin()" class="btn btn-lg btn-primary">Login</button>
+                <button type="button" id="btnRegister" onclick="showRegistration()" class="btn btn-lg btn-secondary mt-2 ">Register</button>
+                <div id="logout" class="mt-2" style="display: none;">
+                    <br/>
+                    <h3>Logout</h3>
+                    <br/>
+                    <button class="btn btn-warning" onclick="logout()">Logout</button>
+                    <p id="info"></p>
+                </div>
+            </div>
+
+            <div id="loginFormDiv" style="display:none">
+                <br/>
+                <h3 class="h3">Login</h3>
+                <form method="post" id="loginForm" onsubmit="return loginUser()">
+                    <p><label>Username:<input type="text" id="usernameLogin" class="form-control"/></label></p>
+                    <p><label>Password:<input type="password" id="passwordLogin" class="form-control"/></label></p>
+                    <br/>
+                    <p><button class="btn btn-success">Submit</button></p>
+                </form>
+            </div>
+
+            <div id="registerFormDiv" style="display:none">
+                <br/>
+                <h3 class="h3">Register</h3>
+                <form method="post" id="registerForm" onsubmit="return registerUser()">
+                    <p><label>Email:<input type="email" id="emailRegister" class="form-control"/></label></p>
+                    <p><label>Username:<input type="text" id="usernameRegister" class="form-control"/></label></p>
+                    <p><label>Password:<input type="text" id="passwordRegister" class="form-control"  /></label></p>
+                    <p><label>Confirm password:<input type="password" id="confirmPasswordRegister" class="form-control"/></label></p>
+                    <br/>
+                    <p><button class="btn btn-success">Submit</button></p>
+                </form>
+                <p>Paasword value needs to meet following parameters</p>
+                <ol style="display: inline-block;">
+                    <li>
+                        at least six characters
+                    </li>
+                    <li>
+                        at least one numeric character
+                    </li>
+                    <li>
+                        at least one non-alphanumeric character
+                    </li>
+                    <li>
+                        at least one small leter
+                    </li>
+                    <li>
+                        at least one capital letter
+                    </li>
+                </ol>
+            </div>
+            <br/>
+            <br/>
+
+            <div id="data">             
+            </div>
+
+            <div id="formDiv" style="display:none">
+                <form method="post" id="sellerForm" onsubmit="return submitSellerForm()">
+                    <p><label>Name:</label><input type="text" id="sellerName" class="form-control"/></p>
+                    <br/>
+                    <p><label>Surname:</label><input type="text" id="sellerSurname" class="form-control"/></p>
+                    <br/>
+                    <p><label>Year of birth:</label> <input type="number" id="sellerYear" class="form-control" min="1940"/></p>
+                    <br/>
+                    <p><label>Shop:</label><select id="sellerShop" class="form-select"></select></p>
+                    <br/>
+                    <p><input class="btn btn-success" value="Submit" type="submit"/>
+                    <input type="reset" value="Cancel" class="btn btn-warning" onclick="cancelSellerForm()"/>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
